@@ -2,6 +2,7 @@ fastapi==0.104.1
 uvicorn==0.24.0
 psycopg2-binary==2.9.9
 google-generativeai==0.3.2
-pydantic==2.5.0
+# Pin pydantic to a wheel-friendly version; let it pull its matching core (2.20.1)
+pydantic==2.8.2
 python-dotenv==1.0.0
 
