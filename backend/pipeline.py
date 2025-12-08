@@ -26,16 +26,12 @@ class RagPipeline:
             Dictionary with answer and intermediate steps
         """
         try:
-            # Step 1: Schema Agent - Identify relevant tables and columns
             schema_info = self.schema_agent.run(question)
             
-            # Step 2: SQL Agent - Generate SQL query
             sql, params = self.sql_agent.build(question, schema_info)
             
-            # Step 3: Retriever Agent - Execute SQL and get results
             rows, columns = self.retriever.run(sql, params)
             
-            # Step 4: Synthesizer Agent - Generate natural language answer
             answer = self.synth.answer(question, rows, sql)
             
             error = None
