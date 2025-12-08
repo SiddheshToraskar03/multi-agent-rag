@@ -30,7 +30,7 @@ def call_llm(system_prompt: str, user_prompt: str) -> str:
     Returns:
         Generated text response from Gemini
     """
-    model = genai.GenerativeModel('gemini-2.5-flash')
+    model = genai.GenerativeModel('gemini-2.5-flash-lite')
     
     # Combine system and user prompts
     full_prompt = f"{system_prompt}\n\n{user_prompt}"
